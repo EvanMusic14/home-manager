@@ -2,10 +2,15 @@
 
 {
   home.packages = with pkgs; [
+    awscli2
+
+    brave
+
     cmake
     curl
     
     devbox
+    direnv
 
     firefox
 
@@ -22,6 +27,8 @@
 
     python311
     python311Packages.selenium
+
+    ssm-session-manager-plugin
 
     vim
 
