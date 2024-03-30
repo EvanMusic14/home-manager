@@ -8,7 +8,7 @@
       PATH = "$PATH:$HOME/.config/home-manager/bin";
     };
     shellAliases = {
-      switch = "home-manager switch";
+      switch = "home-manager switch --extra-experimental-features 'nix-command flakes'";
       ls = "ls -lah --color=auto";
     };
     initExtra = ''
