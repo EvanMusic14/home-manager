@@ -19,7 +19,7 @@
       CONAN_REVISIONS_ENABLED=1;
     };
     shellAliases = {
-      switch = "home-manager switch";
+      switch = "home-manager switch --extra-experimental-features 'nix-command flakes'";
       ls = "ls -lah --color=auto";
       win-mount = "mkdir -p '$HOME/Documents/share' && vmhgfs-fuse .host:/share $HOME/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
       make-keys = "ssh-keygen -t ed25519";

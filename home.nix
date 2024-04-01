@@ -14,4 +14,10 @@
   programs.home-manager.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Enable the experimental nix-command and flakes
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
 }
