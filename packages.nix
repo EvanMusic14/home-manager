@@ -14,7 +14,6 @@
 
     firefox
 
-    gcc13
     git
     gitkraken
     gnumake
@@ -27,7 +26,7 @@
 
     python311Full
     python311Packages.argcomplete
-    python311Packages.pipx
+    #python311Packages.pipx
     python311Packages.selenium
 
     ssm-session-manager-plugin

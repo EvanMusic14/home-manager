@@ -10,15 +10,16 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      homeConfigurations."emusic" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+  outputs = { nixpkgs, home-manager, ... }: {
+      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
-        modules = [ ./home.nix ];
+      homeConfigurations = {
+        "emusic" = home-manager.lib.homeManagerConfiguration {
+
+            pkgs = import nixpkgs { system = "x86_64-linux"; };
+
+            modules = [ ./home.nix ];
+        };
       };
-    };
+  };
 }
