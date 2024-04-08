@@ -11,13 +11,13 @@ sudo apt install curl -y
 # Install nix package manager
 sh <(curl -L https://nixos.org/nix/install) --daemon --yes
 
+# Remove programs so there are no conflicts with nix packages
+sudo snap remove --purge firefox
+sudo apt purge curl git firefox -y
+sudo apt autoremove -y
+
 # Source to get nix commands
 source /etc/profile
 
 # Switch to flake configuration
 nix run . -- switch -b backup
-
-# Remove programs so there are no conflicts with nix packages
-sudo snap remove --purge firefox
-sudo apt purge curl git firefox -y
-sudo apt autoremove -y
