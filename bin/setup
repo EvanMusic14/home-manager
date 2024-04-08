@@ -1,5 +1,5 @@
 # Add file to enable expiremental features
-cp -r ../nix/ ../../
+cp -r ~/.config/home-manager/nix/ ~/.config/
 
 # Backup files
 mv ~/.bashrc ~/.bashrc.backup
