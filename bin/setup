@@ -1,3 +1,9 @@
+cp -r ../nix/ ../../
+
+# Backup files
+mv ~/.bashrc ~/.bashrc.backup
+mv ~/.profile ~/.profile.backup
+
 # Have to install curl to install nix package manager
 sudo apt install curl -y
 
@@ -6,12 +12,6 @@ sh <(curl -L https://nixos.org/nix/install) --daemon --yes
 
 # Source to get nix commands
 source /etc/profile
-
-cp -r ../nix/ ../../
-
-# Backup files
-mv ~/.bashrc ~/.bashrc.backup
-mv ~/.profile ~/.profile.backup
 
 nix run home-manager switch
 
