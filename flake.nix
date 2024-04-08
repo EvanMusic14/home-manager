@@ -1,8 +1,6 @@
 {
   description = "Home Manager configuration of emusic";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
