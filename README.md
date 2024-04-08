@@ -6,3 +6,5 @@ https://discourse.nixos.org/t/home-manager-flake-does-not-provide-attribute/2492
 # Commands
 - `nix run . -- build --flake .`
 - `nix run . -- switch --flake .`
+
+- `sudo apt install git && git clone git@github.com:EvanMusic14/home-manager.git`
