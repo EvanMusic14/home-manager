@@ -11,10 +11,12 @@ source /etc/profile
 mv ~/.bashrc ~/.bashrc.backup
 mv ~/.profile ~/.profile.backup
 
+nix run home-manager switch
+
 # Install home manager
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manager>' -A install
+#nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
+#nix-channel --update
+#nix-shell '<home-manager>' -A install
 
 # Remove programs so there are no conflicts with nix packages
 sudo snap remove --purge firefox
@@ -22,8 +24,8 @@ sudo apt purge curl git firefox -y
 sudo apt autoremove -y
 
 # Source to get home-manager commands
-source /etc/profile
+#source /etc/profile
 
 # Switch to home-manager config
-home-manager switch --extra-experimental-features 'nix-command flakes'
+#home-manager switch --extra-experimental-features 'nix-command flakes'
 
