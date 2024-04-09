@@ -11,5 +11,8 @@ cd home-manager
 ./bin/setup
 ```
 
+## Setup with only installing nix
+`nix run github:EvanMusic14/home-manager/develop#homeConfigurations."emusic".activationPackage`
+
 ## Resources
 https://www.chrisportela.com/posts/home-manager-flake/
