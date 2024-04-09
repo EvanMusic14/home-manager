@@ -11,6 +11,11 @@ sh <(curl -L https://nixos.org/nix/install) --daemon --yes
 # Source to get nix commands
 source /etc/profile
 
+# Remove programs so there are no conflicts with nix packages
+sudo snap remove --purge firefox
+sudo apt purge vim curl git firefox open-vm-tools open-vm-tools-desktop -y
+sudo apt autoremove -y
+
 # Update channels
 ## 23.11
 # nix-channel --add https://github.com/nixos/nixpkgs/archive/nixos-23.11.tar.gz nixpkgs
@@ -21,9 +26,3 @@ nix-channel --update
 
 # Install home-manager
 nix-shell '<home-manager>' -A install
-
-# Remove programs so there are no conflicts with nix packages
-sudo snap remove --purge firefox
-sudo apt purge vim curl git firefox open-vm-tools open-vm-tools-desktop -y
-sudo apt autoremove -y
-
