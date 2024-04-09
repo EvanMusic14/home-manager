@@ -4,8 +4,6 @@
   home.packages = with pkgs; [
     awscli2
 
-    brave
-
     cmake
     curl
     
@@ -26,7 +24,7 @@
 
     python311Full
     python311Packages.argcomplete
-    python311Packages.pipx
+    # python311Packages.pipx
     python311Packages.selenium
 
     ssm-session-manager-plugin
