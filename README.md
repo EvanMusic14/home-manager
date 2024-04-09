@@ -12,7 +12,7 @@ cd home-manager
 ```
 
 ## Setup with only installing nix
-`nix run github:EvanMusic14/home-manager/develop#homeConfigurations."emusic".activationPackage`
+`nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/testing#homeConfigurations."emusic".activationPackage`
 
 ## Resources
 https://www.chrisportela.com/posts/home-manager-flake/
