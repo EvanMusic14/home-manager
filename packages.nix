@@ -29,8 +29,6 @@
 
     ssm-session-manager-plugin
 
-    vim
-
     wget
   ];
 }

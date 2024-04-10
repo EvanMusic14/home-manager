@@ -33,6 +33,18 @@
     '';
   };
 
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+    settings = {
+      background = "dark";
+      mouse = "a";
+      number = true;
+      relativenumber = true;
+      tabstop = 2;
+    }; 
+  };
+
   programs.git = {
     enable = true;
     userName = "Evan Music";
