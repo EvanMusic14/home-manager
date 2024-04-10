@@ -30,8 +30,6 @@
       eval "$(direnv hook bash)"
       # enables hgrex-cli tab-completion
       eval "$(register-python-argcomplete hgrex-cli)"
-      # check if ssh keys exist if not create them
-      [ ! -f ~/.ssh/id_ed25519.pub ] && ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
     '';
   };
 
