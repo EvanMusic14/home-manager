@@ -20,4 +20,8 @@
     package = pkgs.nix;
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
+
+  home.activation.sshkeys = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    [ ! -f ~/.ssh/id_ed25519.pub ] && ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
+  '';
 }
