@@ -1,18 +1,9 @@
 # home-manager
 
 ## Steps
-- Run `ssh-keygen -t ed25519`
-  - Add public key to git
-- Run commands below
-```
-cd ~/.config
-sudo apt install git -y && git clone git@github.com:EvanMusic14/home-manager.git
-cd home-manager
-./bin/setup
-```
+- `sudo apt install curl -y && sh <(curl -L https://nixos.org/nix/install) --daemon --yes`
 
-## Setup with only installing nix
-`nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/testing#homeConfigurations."emusic".activationPackage`
+- `nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/testing#homeConfigurations."emusic".activationPackage`
 
 ## Resources
 https://www.chrisportela.com/posts/home-manager-flake/

@@ -19,7 +19,7 @@
       CONAN_REVISIONS_ENABLED=1;
     };
     shellAliases = {
-      switch = "home-manager switch --extra-experimental-features 'nix-command flakes'";
+      switch = "home-manager switch";
       ls = "ls -lah --color=auto";
       win-mount = "mkdir -p '/home/emusic/Documents/share' && vmhgfs-fuse .host:/share /home/emusic/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
       make-keys = "ssh-keygen -t ed25519";
@@ -30,6 +30,8 @@
       eval "$(direnv hook bash)"
       # enables hgrex-cli tab-completion
       eval "$(register-python-argcomplete hgrex-cli)"
+      # check if ssh keys exist if not create them
+      [ ! -f ~/.ssh/id_ed25519.pub ] && ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
     '';
   };
 
