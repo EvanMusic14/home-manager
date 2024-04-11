@@ -1,4 +1,4 @@
-sadfas{ config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
