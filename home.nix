@@ -22,7 +22,7 @@
   };
 
   # After switch check if ssh keys exist if not create them
-  home.activation.sshkeys = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run [ ! -f ~/.ssh/id_ed25519.pub ] && ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
+  home.activation.createSshKey = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    [ ! -f ~/.ssh/id_ed25519.pub ] && ${pkgs.openssh.out}/bin/ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
   '';
 }
