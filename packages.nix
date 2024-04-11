@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     awscli2
 
-    cmake
     curl
     
     devbox
@@ -14,13 +13,10 @@
 
     git
     gitkraken
-    gnumake
 
     jetbrains.clion
 
     neovim
-
-    open-vm-tools
 
     python311Full
     python311Packages.argcomplete
