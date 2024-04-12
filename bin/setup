@@ -13,7 +13,7 @@ source /etc/profile
 
 # Remove programs so there are no conflicts with nix packages
 sudo snap remove --purge firefox
-sudo apt purge vim curl git firefox open-vm-tools open-vm-tools-desktop -y
+sudo apt purge vim curl git firefox -y
 sudo apt autoremove -y
 
 # Update channels
