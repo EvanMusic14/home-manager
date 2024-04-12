@@ -2,28 +2,28 @@
 
 {
   home.packages = with pkgs; [
-    cmake
+    awscli2
+
     curl
     
     devbox
+    direnv
 
     firefox
 
-    gcc13
     git
     gitkraken
-    gnumake
 
     jetbrains.clion
 
     neovim
 
-    open-vm-tools
-
-    python311
+    python311Full
+    python311Packages.argcomplete
+    python311Packages.pipx
     python311Packages.selenium
 
-    vim
+    ssm-session-manager-plugin
 
     wget
   ];

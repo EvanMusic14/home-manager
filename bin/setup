@@ -1,3 +1,7 @@
+# Backup files
+mv ~/.bashrc ~/.bashrc.backup
+mv ~/.profile ~/.profile.backup
+
 # Have to install curl to install nix package manager
 sudo apt install curl -y
 
@@ -7,23 +11,18 @@ sh <(curl -L https://nixos.org/nix/install) --daemon --yes
 # Source to get nix commands
 source /etc/profile
 
-# Backup files
-mv ~/.bashrc ~/.bashrc.backup
-mv ~/.profile ~/.profile.backup
-
-# Install home manager
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manager>' -A install
-
 # Remove programs so there are no conflicts with nix packages
 sudo snap remove --purge firefox
-sudo apt purge curl git firefox -y
+sudo apt purge vim curl git firefox -y
 sudo apt autoremove -y
 
-# Source to get home-manager commands
-source /etc/profile
+# Update channels
+## 23.11
+# nix-channel --add https://github.com/nixos/nixpkgs/archive/nixos-23.11.tar.gz nixpkgs
+# nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
+## Unstable
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
 
-# Switch to home-manager config
-home-manager switch --extra-experimental-features 'nix-command flakes'
-
+# Install home-manager
+nix-shell '<home-manager>' -A install
