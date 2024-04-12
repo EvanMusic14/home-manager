@@ -22,10 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@master
-        with:
-          ref: ${{ github.ref }}
-    
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: sudo apt install curl -y
@@ -33,5 +29,5 @@ jobs:
               && source /etc/profile
               && if [[ -f $HOME/.bashrc ]]; then mv ~/.bashrc ~/.bashrc.backup; fi
               && if [[ -f $HOME/.profile ]]; then mv ~/.profile ~/.profile.backup; fi
-              && nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."runner".activationPackage
+              && nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/${{ github.ref }}#homeConfigurations."runner".activationPackage
               && source $HOME/.bashrc
