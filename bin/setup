@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 # Backup files
 mv ~/.bashrc ~/.bashrc.backup
 mv ~/.profile ~/.profile.backup
@@ -12,9 +14,7 @@ sh <(curl -L https://nixos.org/nix/install) --daemon --yes
 source /etc/profile
 
 # Remove programs so there are no conflicts with nix packages
-sudo snap remove --purge firefox
-sudo apt purge vim curl git firefox -y
-sudo apt autoremove -y
+./remove-programs
 
 # Update channels
 ## 23.11

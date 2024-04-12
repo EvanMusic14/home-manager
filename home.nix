@@ -2,13 +2,13 @@
 
 {
   imports = [
-    ./packages.nix
-    ./programs.nix
+    ./modules/packages.nix
+    ./modules/programs.nix
   ];
 
   home.username = "emusic";
   home.homeDirectory = "/home/emusic";
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "23.11";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
