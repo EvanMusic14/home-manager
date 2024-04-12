@@ -1,7 +1,7 @@
 # home-manager
 
 ## Steps without clone
-
+- Run single command below
 ```
 sudo apt install curl -y \
 && sh <(curl -L https://nixos.org/nix/install) --daemon --yes \
