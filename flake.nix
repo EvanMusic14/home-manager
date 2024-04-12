@@ -21,13 +21,31 @@
 
         pkgs = import nixpkgs { system = "x86_64-linux"; };
 
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          {
+            home = {
+              username = "emusic";
+              homeDirectory = "/home/emusic";
+              stateVersion = "23.11";
+            };
+          }
+        ];
       };
       "runner" = home-manager.lib.homeManagerConfiguration {
 
         pkgs = import nixpkgs { system = "x86_64-linux"; };
 
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          {
+            home = {
+              username = "runner";
+              homeDirectory = "/home/runner";
+              stateVersion = "23.11";
+            };
+          }
+        ];
       };
     };
   };

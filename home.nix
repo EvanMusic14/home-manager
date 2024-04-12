@@ -1,17 +1,10 @@
 { config, pkgs, lib, ... }:
 let
-    username = "emusic";
     modules = builtins.readDir ./modules;
     configs = builtins.filter (file: builtins.match ".*\.nix" file != null) (builtins.attrNames modules);
 in
 {
   imports = map (file: import (./modules + "/${file}")) configs;
-
-  home = {
-    username = username;
-    homeDirectory = "/home/${username}";
-    stateVersion = "23.11";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
