@@ -29,8 +29,8 @@ jobs:
           cd $HOME
           pwd
           ls -lah
-          mv $HOME/.bashrc $HOME/.bashrc.backup
-          mv $HOME/.profile $HOME/.profile.backup
+          if [[ -f $HOME/.bashrc ]]; then mv $HOME/.bashrc $HOME/.bashrc.backup; fi
+          if [[ -f $HOME/.profile ]]; then mv $HOME/.profile $HOME/.profile.backup; fi
           ls -lah
     
       # # Runs a single command using the runners shell
