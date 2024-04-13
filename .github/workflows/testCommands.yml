@@ -25,7 +25,13 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: pwd && ls && ls -lah $HOME
+        run: |
+          cd $HOME
+          pwd
+          ls -lah
+          mv $HOME/.bashrc $HOME/.bashrc.backup
+          mv $HOME/.profile $HOME/.profile.backup
+          ls -lah
     
       # # Runs a single command using the runners shell
       # - name: Run a one-line script
