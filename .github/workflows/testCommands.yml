@@ -35,14 +35,13 @@ jobs:
     
       # # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: cd $HOME
-              && if [[ -f $HOME/.bashrc ]]; then mv $HOME/.bashrc $HOME/.bashrc.backup; fi
-              && if [[ -f $HOME/.profile ]]; then mv $HOME/.profile $HOME/.profile.backup; fi
-              && ls -lah
-              && sudo apt install curl -y
+        run: sudo apt install curl -y
               && sh <(curl -L https://nixos.org/nix/install) --daemon --yes
               && source /etc/profile
-              && nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/${{ github.ref }}#homeConfigurations."runner".activationPackage
+              && if [[ -f $HOME/.bashrc ]]; then mv ~/.bashrc ~/.bashrc.backup; fi
+              && if [[ -f $HOME/.profile ]]; then mv ~/.profile ~/.profile.backup; fi
+              && if [[ -f $HOME/.bash_profile ]]; then mv ~/.bash_profile ~/.bash_profile.backup; fi
+              && nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."emusic".activationPackage
               && source $HOME/.bashrc
 
       # # Runs a set of commands using the runners shell
