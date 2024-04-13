@@ -29,3 +29,5 @@ cd $HOME/.config \
 https://www.chrisportela.com/posts/home-manager-flake/
 
 https://gvolpe.com/blog/nix-flakes/
+
+https://nix-community.github.io/home-manager/release-notes.xhtml#sec-release-22.11-highlights
