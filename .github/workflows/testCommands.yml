@@ -41,7 +41,7 @@ jobs:
               && if [[ -f $HOME/.bashrc ]]; then mv ~/.bashrc ~/.bashrc.backup; fi
               && if [[ -f $HOME/.profile ]]; then mv ~/.profile ~/.profile.backup; fi
               && if [[ -f $HOME/.bash_profile ]]; then mv ~/.bash_profile ~/.bash_profile.backup; fi
-              && nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."runner".activationPackage
+              && nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/${{ github.ref }}#homeConfigurations."runner".activationPackage
               && source $HOME/.bashrc
 
       # # Runs a set of commands using the runners shell
