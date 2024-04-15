@@ -33,7 +33,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          mv . $HOME/.config
+          pwd
+          cd ..
+          mv home-manager $HOME/.config/home-manager
           cd $HOME/.config/home-manager
           ./bin/setup
           ls -lah $HOME
