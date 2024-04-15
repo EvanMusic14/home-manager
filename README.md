@@ -9,7 +9,7 @@ sudo apt install curl -y \
 && if [[ -f $HOME/.bashrc ]]; then mv ~/.bashrc ~/.bashrc.backup; fi \
 && if [[ -f $HOME/.profile ]]; then mv ~/.profile ~/.profile.backup; fi \
 && if [[ -f $HOME/.bash_profile ]]; then mv ~/.bash_profile $HOME/.bash_profile.backup; fi \
-&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."emusic".activationPackage \
+&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."$USER".activationPackage \
 && source $HOME/.bashrc
 ```
 
