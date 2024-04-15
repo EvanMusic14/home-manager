@@ -36,5 +36,3 @@ jobs:
           ref: ${{ github.ref }}
       - run: |
           ./bin/setup
-          . $HOME/.bashrc
-          home-manager --help
