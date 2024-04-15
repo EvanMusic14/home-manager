@@ -35,10 +35,6 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - run: |
-          pwd
-          cd ..
-          mv home-manager $HOME/.config/home-manager
-          cd $HOME/.config/home-manager
+          ls -lah
           ./bin/setup
-          ls -lah $HOME
           home-manager --help
