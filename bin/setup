@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
 
 # Backup files
-mv ~/.bashrc ~/.bashrc.backup
-mv ~/.profile ~/.profile.backup
+if [[ -f $HOME/.bashrc ]]; then mv $HOME/.bashrc $HOME/.bashrc.backup; fi
+if [[ -f $HOME/.profile ]]; then mv $HOME/.profile $HOME/.profile.backup; fi
+if [[ -f $HOME/.bash_profile ]]; then mv ~/.bash_profile $HOME/.bash_profile.backup; fi
 
 # Have to install curl to install nix package manager
 sudo apt install curl -y
@@ -16,4 +17,4 @@ source /etc/profile
 # Remove programs so there are no conflicts with nix packages
 ./remove-programs
 
-nix --extra-experimental-features 'nix-command flakes' run .#homeConfigurations."runner".activationPackage
+nix --extra-experimental-features 'nix-command flakes' run .#homeConfigurations."$USER".activationPackage
