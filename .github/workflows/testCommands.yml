@@ -34,9 +34,5 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-      - run: |
-          ls -lah
-          ./bin/setup
-          ls -lah $HOME
-          source $HOME/.bashrc
-          home-manager --help
+      - run: ./bin/setup
+      - run: home-manager --help
