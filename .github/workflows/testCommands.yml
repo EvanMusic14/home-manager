@@ -33,5 +33,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          pwd
-          ls -lah
+          ./bin/setup
