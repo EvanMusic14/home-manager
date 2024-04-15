@@ -31,7 +31,6 @@ jobs:
   setup-with-clone:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a multi-line script
       - uses: actions/checkout@v4
       - run: |
           pwd
