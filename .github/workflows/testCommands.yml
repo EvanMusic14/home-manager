@@ -36,7 +36,3 @@ jobs:
       - run: |
           pwd
           ls -lah
-          # cd ~/.config
-          # sudo apt install git -y && git clone git@github.com:EvanMusic14/home-manager.git
-          # cd home-manager
-          # ./bin/setup
