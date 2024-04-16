@@ -19,10 +19,11 @@
       CONAN_REVISIONS_ENABLED=1;
     };
     shellAliases = {
-      switch = "home-manager switch";
+      db = "devbox";
       ls = "ls -lah --color=auto";
-      win-mount = "mkdir -p '/home/emusic/Documents/share' && vmhgfs-fuse .host:/share /home/emusic/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
       make-keys = "ssh-keygen -t ed25519";
+      switch = "home-manager switch";
+      win-mount = "mkdir -p '/home/emusic/Documents/share' && vmhgfs-fuse .host:/share /home/emusic/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
     };
     initExtra = ''
       PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\ $ '
