@@ -17,8 +17,8 @@
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {
+      # My main configuration
       "emusic" = home-manager.lib.homeManagerConfiguration {
-
         pkgs = import nixpkgs { system = "x86_64-linux"; };
 
         modules = [
@@ -32,8 +32,8 @@
           }
         ];
       };
+      # A configuration needed for github actions to run ci
       "runner" = home-manager.lib.homeManagerConfiguration {
-
         pkgs = import nixpkgs { system = "x86_64-linux"; };
 
         modules = [
