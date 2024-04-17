@@ -29,4 +29,3 @@ jobs:
           ref: ${{ github.ref }}
       - run: |
           ./bin/setup
-          source $HOME/.bashrc
