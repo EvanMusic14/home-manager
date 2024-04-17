@@ -3,7 +3,7 @@
 # Backup files
 if [[ -f $HOME/.bashrc ]]; then mv $HOME/.bashrc $HOME/.bashrc.backup; fi
 if [[ -f $HOME/.profile ]]; then mv $HOME/.profile $HOME/.profile.backup; fi
-if [[ -f $HOME/.bash_profile ]]; then mv ~/.bash_profile $HOME/.bash_profile.backup; fi
+if [[ -f $HOME/.bash_profile ]]; then mv $HOME/.bash_profile $HOME/.bash_profile.backup; fi
 
 # Have to install curl to install nix package manager
 sudo apt install curl -y
