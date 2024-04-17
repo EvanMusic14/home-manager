@@ -4,6 +4,7 @@ let
     configs = builtins.filter (file: builtins.match ".*\.nix" file != null) (builtins.attrNames modules);
 in
 {
+  # Dynamically import all the nix files in the modules directory
   imports = map (file: import (./modules + "/${file}")) configs;
 
   # Let Home Manager install and manage itself.
