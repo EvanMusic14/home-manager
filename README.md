@@ -1,4 +1,5 @@
 # home-manager
+![Actions workflow](https://github.com/EvanMusic14/home-manager/actions/workflows/testCommands.yml/badge.svg)
 
 ## Steps without clone
 - Run single command below
