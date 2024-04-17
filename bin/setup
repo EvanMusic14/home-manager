@@ -17,4 +17,5 @@ source /etc/profile
 # Remove programs so there are no conflicts with nix packages
 ./remove-programs
 
+# Run the nix flake configuration 
 nix --extra-experimental-features 'nix-command flakes' run .#homeConfigurations."$USER".activationPackage
