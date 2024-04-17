@@ -1,4 +1,4 @@
-name: Nix and Home Manager install
+name: "Nix and Home Manager install "
 
 on:
   push:
