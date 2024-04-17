@@ -1,14 +1,11 @@
 { config, pkgs, lib, ... }:
-
+let
+    modules = builtins.readDir ./modules;
+    configs = builtins.filter (file: builtins.match ".*\.nix" file != null) (builtins.attrNames modules);
+in
 {
-  imports = [
-    ./packages.nix
-    ./programs.nix
-  ];
-
-  home.username = "emusic";
-  home.homeDirectory = "/home/emusic";
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  # Dynamically import all the nix files in the modules directory
+  imports = map (file: import (./modules + "/${file}")) configs;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -2,26 +2,33 @@
 
 ## Steps without clone
 - Run single command below
-```
+```sh
 sudo apt install curl -y \
 && sh <(curl -L https://nixos.org/nix/install) --daemon --yes \
 && source /etc/profile \
-&& mv ~/.bashrc ~/.bashrc.backup \
-&& mv ~/.profile ~/.profile.backup \
-&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."emusic".activationPackage \
-&& source ~/.bashrc
+&& if [[ -f $HOME/.bashrc ]]; then mv ~/.bashrc ~/.bashrc.backup; fi \
+&& if [[ -f $HOME/.profile ]]; then mv ~/.profile ~/.profile.backup; fi \
+&& if [[ -f $HOME/.bash_profile ]]; then mv ~/.bash_profile $HOME/.bash_profile.backup; fi \
+&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."$USER".activationPackage \
+&& source $HOME/.bashrc
 ```
 
 ## Steps with clone
-- `ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519 && cat ~/.ssh/id_ed25519.pub`
+- Run `ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519 && cat ~/.ssh/id_ed25519.pub`
 - Add public key to git
-- `cd ~/.config`
-- `sudo apt install git -y && git clone git@github.com:EvanMusic14/home-manager.git`
-- `cd home-manager`
-- `./bin/setup`
-- open new terminal or `source ~/.bashrc`
+- Run command below
+```sh
+cd $HOME/.config \
+&& sudo apt install git -y \
+&& git clone git@github.com:EvanMusic14/home-manager.git \
+&& cd home-manager \
+&& ./bin/setup \
+&& source $HOME/.bashrc
+```
 
 ## Resources
 https://www.chrisportela.com/posts/home-manager-flake/
 
 https://gvolpe.com/blog/nix-flakes/
+
+https://nix-community.github.io/home-manager/release-notes.xhtml#sec-release-22.11-highlights

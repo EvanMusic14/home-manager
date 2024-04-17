@@ -10,6 +10,7 @@
     direnv
 
     firefox
+    fd
 
     git
     gitkraken
