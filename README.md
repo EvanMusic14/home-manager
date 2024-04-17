@@ -8,7 +8,8 @@ sudo apt install curl -y \
 && source /etc/profile \
 && if [[ -f $HOME/.bashrc ]]; then mv ~/.bashrc ~/.bashrc.backup; fi \
 && if [[ -f $HOME/.profile ]]; then mv ~/.profile ~/.profile.backup; fi \
-&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."emusic".activationPackage \
+&& if [[ -f $HOME/.bash_profile ]]; then mv ~/.bash_profile $HOME/.bash_profile.backup; fi \
+&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."$USER".activationPackage \
 && source $HOME/.bashrc
 ```
 
@@ -29,3 +30,5 @@ cd $HOME/.config \
 https://www.chrisportela.com/posts/home-manager-flake/
 
 https://gvolpe.com/blog/nix-flakes/
+
+https://nix-community.github.io/home-manager/release-notes.xhtml#sec-release-22.11-highlights
