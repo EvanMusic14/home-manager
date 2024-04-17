@@ -61,9 +61,28 @@
     '';
   };
 
-  programs.vim = {
+  programs.neovim = {
     enable = true;
     defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    extraConfig = ''
+      set clipboard+=unnamedplus
+      set termguicolors
+      set background=dark
+      set mouse=a
+      set number
+      set relativenumber
+      set tabstop=2
+      set scrolloff=8
+      set smartindent
+      set smartcase
+      set smarttab
+    '';
+  };
+
+  programs.vim = {
+    enable = true;
     settings = {
       background = "dark";
       mouse = "a";

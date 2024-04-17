@@ -17,8 +17,6 @@
 
     jetbrains.clion
 
-    neovim
-
     python311Full
     python311Packages.argcomplete
     python311Packages.pipx
@@ -27,5 +25,7 @@
     ssm-session-manager-plugin
 
     wget
+
+    xsel
   ];
 }
