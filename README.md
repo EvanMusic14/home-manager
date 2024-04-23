@@ -2,7 +2,7 @@
 ![Nix and Home Manager install](https://github.com/EvanMusic14/home-manager/actions/workflows/testCommands.yml/badge.svg)
 
 ## Steps without clone
-- Run single command below
+- Run either of the single commands below
 ```sh
 sudo apt install curl -y \
 && sh <(curl -L https://nixos.org/nix/install) --daemon --yes \
@@ -12,6 +12,9 @@ sudo apt install curl -y \
 && if [[ -f $HOME/.bash_profile ]]; then mv ~/.bash_profile $HOME/.bash_profile.backup; fi \
 && nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."$USER".activationPackage \
 && source $HOME/.bashrc
+```
+```sh
+bash <(curl -L https://raw.githubusercontent.com/EvanMusic14/home-manager/curl-script/bin/setup)
 ```
 
 ## Steps with clone
