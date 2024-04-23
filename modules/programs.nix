@@ -14,8 +14,6 @@
       HGREX_CLI_STDOUT_LOG_LEVEL="DEBUG";
       HGREX_CLI_FILE_LOG_LEVEL="WARN";
       HGREX_PROJECT_ROOT="$HOME/Documents/ssp/hgrex";
-      CONAN_TOKEN="";
-      CONAN_USER="";
       CONAN_REVISIONS_ENABLED=1;
     };
     shellAliases = {
@@ -53,6 +51,8 @@
       }
 
       PROMPT_COMMAND='update_prompt'
+
+      if [[ -f $HOME/.bashrc_secrets ]]; then . $HOME/.bashrc_secrets; fi
 
       # setup direnv
       eval "$(direnv hook bash)"
