@@ -11,8 +11,5 @@ sh <(curl -L https://nixos.org/nix/install) --daemon --yes
 # Source to get nix commands
 source /etc/profile
 
-# Remove programs so there are no conflicts with nix packages
-./remove-programs
-
 # Run the nix flake configuration 
 nix --extra-experimental-features 'nix-command flakes' run .#homeConfigurations."$USER".activationPackage
