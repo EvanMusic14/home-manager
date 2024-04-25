@@ -23,7 +23,7 @@ in
     [ ! -f ~/.ssh/id_ed25519.pub ] && ${pkgs.openssh.out}/bin/ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
   '';
   # Move files so that they do not conflict with the ones created by home manager
-  home.activation.moveFiles = lib.hm.dag.entryBefore [ "nix" ] ''
+  home.activation.moveFiles = lib.hm.dag.entryBefore [ "writeBoundary" ] ''
     [[ -f $HOME/.bashrc ]] && [[ ! -f $HOME/.bashrc.backup ]] && mv $HOME/.bashrc $HOME/.bashrc.backup
     [[ -f $HOME/.profile ]] && [[ ! -f $HOME/.profile.backup ]] && mv $HOME/.profile $HOME/.profile.backup
     [[ -f $HOME/.bash_profile ]] && [[ ! -f $HOME/.bash_profile.backup ]] && mv $HOME/.bash_profile $HOME/.bash_profile.backup
