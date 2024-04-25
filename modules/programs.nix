@@ -14,13 +14,11 @@
       HGREX_CLI_STDOUT_LOG_LEVEL="DEBUG";
       HGREX_CLI_FILE_LOG_LEVEL="WARN";
       HGREX_PROJECT_ROOT="$HOME/Documents/ssp/hgrex";
-      CONAN_TOKEN="";
-      CONAN_USER="";
       CONAN_REVISIONS_ENABLED=1;
     };
     shellAliases = {
       db = "devbox";
-      ls = "ls -lah --color=auto";
+      ls = "ls -lah --color=auto --group-directories-first";
       make-keys = "ssh-keygen -t ed25519";
       switch = "home-manager switch";
       win-mount = "mkdir -p '/home/emusic/Documents/share' && vmhgfs-fuse .host:/share /home/emusic/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
@@ -54,6 +52,9 @@
 
       PROMPT_COMMAND='update_prompt'
 
+      # Custom file to put things that shouldnt be public
+      if [[ -f $HOME/.bashrc_secrets ]]; then . $HOME/.bashrc_secrets; fi
+
       # setup direnv
       eval "$(direnv hook bash)"
       # enables hgrex-cli tab-completion
@@ -61,9 +62,28 @@
     '';
   };
 
-  programs.vim = {
+  programs.neovim = {
     enable = true;
     defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    extraConfig = ''
+      set clipboard+=unnamedplus
+      set termguicolors
+      set background=dark
+      set mouse=a
+      set number
+      set relativenumber
+      set tabstop=2
+      set scrolloff=8
+      set smartindent
+      set smartcase
+      set smarttab
+    '';
+  };
+
+  programs.vim = {
+    enable = true;
     settings = {
       background = "dark";
       mouse = "a";
