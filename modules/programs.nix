@@ -52,6 +52,7 @@
 
       PROMPT_COMMAND='update_prompt'
 
+      # Custom file to put things that shouldnt be public
       if [[ -f $HOME/.bashrc_secrets ]]; then . $HOME/.bashrc_secrets; fi
 
       # setup direnv
