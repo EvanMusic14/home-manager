@@ -32,3 +32,7 @@ https://www.chrisportela.com/posts/home-manager-flake/
 https://gvolpe.com/blog/nix-flakes/
 
 https://nix-community.github.io/home-manager/release-notes.xhtml#sec-release-22.11-highlights
+
+https://www.reddit.com/r/NixOS/comments/1bh7vy8/does_anyone_have_a_working_example_of_a/
+
+https://github.com/FabianKoehnen/rootless-podman-homemanager
