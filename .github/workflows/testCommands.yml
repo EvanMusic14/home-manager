@@ -32,3 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: bash <(curl -L https://raw.githubusercontent.com/EvanMusic14/home-manager/${{ github.ref }}/bin/curl-setup)
+
+  test-command:
+    runs-on: ubuntu-latest
+    steps:
+      - run: [[ -f /snap/bin/firefox ]] && echo "Warning: There are snap packages installed that may conflict with nix packages" && echo "Run: sudo snap remove --purge firefox"
