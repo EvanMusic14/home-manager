@@ -2,7 +2,7 @@ name: "Nix and Home Manager install "
 
 on:
   push:
-    branches: [ "*" ]
+    branches: [ "**" ]
 # Remove for now due to being unable to reach curl script in MR
 # Also in the MR the jobs are duplicated so it may be unnecessary
 #  pull_request:
