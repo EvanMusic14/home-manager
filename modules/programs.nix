@@ -1,6 +1,35 @@
 { config, pkgs, ... }:
 
 {
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    history.ignoreAllDups = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "af-magic";
+    };
+    sessionVariables = {
+      EDITOR = "vim";
+      PATH = "$PATH:$HOME/.config/home-manager/bin:$HOME/.local/bin";
+      DIRENV_LOG_FORMAT="";
+
+      # hgrex-cli
+      HGREX_CLI_CUSTOM_SUBCMD_DIR="$HOME/.hgrex-cli/custom";
+      HGREX_CLI_STDOUT_LOG_LEVEL="DEBUG";
+      HGREX_CLI_FILE_LOG_LEVEL="WARN";
+      HGREX_PROJECT_ROOT="$HOME/Documents/ssp/hgrex";
+      CONAN_REVISIONS_ENABLED=1;
+    };
+    shellAliases = {
+      db = "devbox";
+      ls = "ls -lah --color=auto --group-directories-first";
+      make-keys = "ssh-keygen -t rsa -b 4096";
+      switch = "home-manager switch";
+      win-mount = "mkdir -p '/home/emusic/Documents/share' && vmhgfs-fuse .host:/share /home/emusic/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
+    };
+  };
+
   programs.bash = {
     enable = true;
     sessionVariables = {
@@ -69,6 +98,7 @@
     vimAlias = true;
     extraConfig = ''
       set clipboard+=unnamedplus
+      set expandtab
       set termguicolors
       set background=dark
       set mouse=a
@@ -76,6 +106,7 @@
       set relativenumber
       set tabstop=2
       set scrolloff=8
+      set shiftwidth=2
       set smartindent
       set smartcase
       set smarttab

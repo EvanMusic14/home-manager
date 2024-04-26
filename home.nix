@@ -18,6 +18,19 @@ in
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
+  # Check for programs installed on ubuntu that will conflict with nix packages
+  home.activation.checkDuplicates = lib.hm.dag.entryAfter [ "onFilesChange" "reloadSystemd" "installPackages" "createSshKey" ] ''
+    toBeRemoved=""
+
+    [[ -f /usr/bin/firefox ]] && toBeRemoved+="firefox "
+    [[ -f /usr/bin/curl ]] && toBeRemoved+="curl "
+    [[ -f /usr/bin/git ]] && toBeRemoved+="git "
+    [[ -f /usr/bin/vim ]] && toBeRemoved+="vim "
+
+    [[ ! $toBeRemoved == "" ]] && echo "Warning: Run: sudo apt purge --auto-remove $toBeRemoved -y"
+
+    [[ -f /snap/bin/firefox ]] && echo "Warning: Run: sudo snap remove --purge firefox"
+  '';
   # After switch check if ssh keys exist if not create them
   home.activation.createSshKey = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     [ ! -f ~/.ssh/id_rsa.pub ] && ${pkgs.openssh.out}/bin/ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa
