@@ -25,8 +25,8 @@ in
     [[ -f /usr/bin/curl ]] && toBeRemoved+="curl "
     [[ -f /usr/bin/git ]] && toBeRemoved+="git "
     [[ -f /usr/bin/vim ]] && toBeRemoved+="vim "
-    if [[ ! $toBeRemoved == "" ]]; then echo "Warning: There are apt packages installed that may conflict with nix packages" && echo "Run: sudo apt purge --auto-remove $toBeRemoved -y" | xargs; fi
-    if [[ -f /snap/bin/firefox ]]; then echo "Warning: There are snap packages installed that may conflict with nix packages" && echo "Run: sudo snap remove --purge firefox"; fi
+    if [[ ! $toBeRemoved == "" ]]; then echo -e "\033[0;31mWarning\033[0m: There are apt packages installed that may conflict with nix packages" && echo -e "\033[0;32mRun\033[0m: sudo apt purge --auto-remove $toBeRemoved -y" | xargs; fi
+    if [[ -f /snap/bin/firefox ]]; then echo -e "\033[0;31mWarning\033[0m: There are snap packages installed that may conflict with nix packages" && echo -e "\033[0;32mRun\033[0m: sudo snap remove --purge firefox"; fi
   '';
   # After switch check if ssh keys exist if not create them
   home.activation.createSshKey = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
