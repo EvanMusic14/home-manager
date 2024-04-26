@@ -19,7 +19,7 @@
     shellAliases = {
       db = "devbox";
       ls = "ls -lah --color=auto --group-directories-first";
-      make-keys = "ssh-keygen -t ed25519";
+      make-keys = "ssh-keygen -t rsa -b 4096";
       switch = "home-manager switch";
       win-mount = "mkdir -p '/home/emusic/Documents/share' && vmhgfs-fuse .host:/share /home/emusic/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
     };

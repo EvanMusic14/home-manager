@@ -14,7 +14,7 @@ bash <(curl -L https://raw.githubusercontent.com/EvanMusic14/home-manager/main/b
 ```
 
 ## Steps with clone
-- Run `ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519 && cat ~/.ssh/id_ed25519.pub`
+- Run `ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub`
 - Add public key to git
 - Run command below
 ```sh
