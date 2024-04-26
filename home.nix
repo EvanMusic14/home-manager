@@ -21,14 +21,11 @@ in
   # Check for programs installed on ubuntu that will conflict with nix packages
   home.activation.checkDuplicates = lib.hm.dag.entryAfter [ "onFilesChange" "reloadSystemd" "installPackages" "createSshKey" ] ''
     toBeRemoved=""
-
     [[ -f /usr/bin/firefox ]] && toBeRemoved+="firefox "
     [[ -f /usr/bin/curl ]] && toBeRemoved+="curl "
     [[ -f /usr/bin/git ]] && toBeRemoved+="git "
     [[ -f /usr/bin/vim ]] && toBeRemoved+="vim "
-
     if [[ ! $toBeRemoved == "" ]]; then echo "Warning: There are apt packages installed that may conflict with nix packages" && echo "Run: sudo apt purge --auto-remove $toBeRemoved -y" | xargs; fi
-
     if [[ -f /snap/bin/firefox ]]; then echo "Warning: There are snap packages installed that may conflict with nix packages" && echo "Run: sudo snap remove --purge firefox"; fi
   '';
   # After switch check if ssh keys exist if not create them
