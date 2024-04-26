@@ -2,7 +2,7 @@ name: "Nix and Home Manager install "
 
 on:
   push:
-    branches: [ "*" ]
+    branches: [ "**" ]
 # Remove for now due to being unable to reach curl script in MR
 # Also in the MR the jobs are duplicated so it may be unnecessary
 #  pull_request:
@@ -28,7 +28,8 @@ jobs:
           ref: ${{ github.ref }}
       - run: ./bin/setup
 
-  setup-with-curl:
-    runs-on: ubuntu-latest
-    steps:
-      - run: bash <(curl -L https://raw.githubusercontent.com/EvanMusic14/home-manager/${{ github.ref }}/bin/curl-setup)
+  # Removing for now since the script is always to "main" it cant be used properly
+  # setup-with-curl:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: bash <(curl -L https://raw.githubusercontent.com/EvanMusic14/home-manager/${{ github.ref }}/bin/curl-setup)
