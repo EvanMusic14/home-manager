@@ -17,6 +17,8 @@
 
     jetbrains.clion
 
+    nix-index
+
     python311Full
     python311Packages.argcomplete
     python311Packages.pipx
