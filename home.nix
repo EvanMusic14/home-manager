@@ -36,7 +36,7 @@ in
     [ ! -f ~/.ssh/id_rsa.pub ] && ${pkgs.openssh.out}/bin/ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa
   '';
   # Move files so that they do not conflict with the ones created by home manager
-  home.activation.moveFiles = lib.hm.dag.entryBefore [ "checkFilesChanged" ] ''
+  home.activation.moveFiles = lib.hm.dag.entryBefore [ "checkFilesChanged" "checkLinkTargets" "writeBoundary" "installPackages" ] ''
     [[ -f $HOME/.bashrc ]] && [[ ! -f $HOME/.bashrc.backup ]] && mv $HOME/.bashrc $HOME/.bashrc.backup
     [[ -f $HOME/.profile ]] && [[ ! -f $HOME/.profile.backup ]] && mv $HOME/.profile $HOME/.profile.backup
     [[ -f $HOME/.bash_profile ]] && [[ ! -f $HOME/.bash_profile.backup ]] && mv $HOME/.bash_profile $HOME/.bash_profile.backup
