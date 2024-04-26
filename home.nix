@@ -27,9 +27,9 @@ in
     [[ -f /usr/bin/git ]] && toBeRemoved+="git "
     [[ -f /usr/bin/vim ]] && toBeRemoved+="vim "
 
-    [[ ! $toBeRemoved == "" ]] && echo "Warning: Run: sudo apt purge --auto-remove $toBeRemoved -y"
+    [[ ! $toBeRemoved == "" ]] && echo "Warning: There are apt packages installed that may conflict with nix packages" && echo "Run: sudo apt purge --auto-remove $toBeRemoved -y" | xargs
 
-    [[ -f /snap/bin/firefox ]] && echo "Warning: Run: sudo snap remove --purge firefox"
+    [[ -f /snap/bin/firefox ]] && echo "Warning: There are snap packages installed that may conflict with nix packages" && echo "Run: sudo snap remove --purge firefox"
   '';
   # After switch check if ssh keys exist if not create them
   home.activation.createSshKey = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
