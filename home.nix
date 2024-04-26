@@ -20,7 +20,7 @@ in
 
   # After switch check if ssh keys exist if not create them
   home.activation.createSshKey = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    [ ! -f ~/.ssh/id_ed25519.pub ] && ${pkgs.openssh.out}/bin/ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
+    [ ! -f ~/.ssh/id_ed25519.pub ] && ${pkgs.openssh.out}/bin/ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa
   '';
   # Move files so that they do not conflict with the ones created by home manager
   home.activation.moveFiles = lib.hm.dag.entryBefore [ "checkFilesChanged" ] ''
