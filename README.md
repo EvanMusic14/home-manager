@@ -7,8 +7,7 @@
 sudo apt install curl -y \
 && sh <(curl -L https://nixos.org/nix/install) --daemon --yes \
 && source /etc/profile \
-&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."$USER".activationPackage \
-&& source $HOME/.bashrc
+&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."$USER".activationPackage
 ```
 ```sh
 bash <(curl -L https://raw.githubusercontent.com/EvanMusic14/home-manager/main/bin/curl-setup)
@@ -23,8 +22,7 @@ cd $HOME/.config \
 && sudo apt install git -y \
 && git clone git@github.com:EvanMusic14/home-manager.git \
 && cd home-manager \
-&& ./bin/setup \
-&& source $HOME/.bashrc
+&& ./bin/setup
 ```
 
 ## Resources
