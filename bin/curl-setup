@@ -8,5 +8,3 @@ source /etc/profile
 
 # Run the nix flake configuration
 nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."$USER".activationPackage
-
-source $HOME/.bashrc

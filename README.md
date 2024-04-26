@@ -11,7 +11,7 @@ sudo apt install curl -y \
 && source $HOME/.bashrc
 ```
 ```sh
-bash <(curl -L https://raw.githubusercontent.com/EvanMusic14/home-manager/curl-script/bin/setup)
+bash <(curl -L https://raw.githubusercontent.com/EvanMusic14/home-manager/main/bin/curl-setup)
 ```
 
 ## Steps with clone

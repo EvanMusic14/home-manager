@@ -26,3 +26,8 @@ jobs:
           ref: ${{ github.ref }}
       - run: |
           ./bin/setup
+
+  setup-with-curl:
+    runs-on: ubuntu-latest
+    steps:
+      - run: bash <(curl -L https://raw.githubusercontent.com/EvanMusic14/home-manager/${{ github.ref }}/bin/curl-setup)
