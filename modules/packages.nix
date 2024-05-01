@@ -7,12 +7,10 @@
     curl
     
     devbox
-    direnv
 
     firefox
     fd
 
-    git
     gitkraken
 
     jetbrains.clion
