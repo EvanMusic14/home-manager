@@ -1,18 +1,6 @@
 #! /usr/bin/env bash
 
 # Remove programs on ubuntu so there are no conflicts with nix packages
-#sudo snap remove --purge firefox
-#sudo apt purge vim curl git firefox -y
-#sudo apt autoremove -y
-
-toBeRemoved=""
-
-[[ -f /usr/bin/firefox ]] && toBeRemoved+="firefox "
-[[ -f /usr/bin/curl ]] && toBeRemoved+="curl "
-[[ -f /usr/bin/git ]] && toBeRemoved+="git "
-[[ -f /usr/bin/vim ]] && toBeRemoved+="vim "
-
-[[ ! $toBeRemoved == "" ]] && echo "sudo apt purge --auto-remove ${toBeRemoved} -y"
-
-[[ -f /snap/bin/firefox ]] && echo "sudo snap remove --purge firefox"
-
+sudo snap remove --purge firefox
+sudo apt purge vim curl git firefox -y
+sudo apt autoremove -y
