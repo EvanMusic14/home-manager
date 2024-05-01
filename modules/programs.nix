@@ -18,6 +18,7 @@
     };
     shellAliases = {
       db = "devbox";
+      install-podman = "sudo apt install -y podman";
       ls = "ls -lah --color=auto --group-directories-first";
       make-keys = "ssh-keygen -t rsa -b 4096";
       switch = "home-manager switch";
