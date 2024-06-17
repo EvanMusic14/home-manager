@@ -1,7 +1,7 @@
 let
   sessionVariables = {
     EDITOR = "vim";
-    PATH = "$PATH:$HOME/.config/home-manager/bin:$HOME/.local/bin";
+    PATH = "$PATH:$HOME/.config/home-manager/bin:$HOME/.nix-profile/bin:$HOME/.local/bin";
     HISTCONTROL=ignoreboth:erasedups;
     DIRENV_LOG_FORMAT="";
 
@@ -14,7 +14,24 @@ let
   };
   shellAliases = {
     db = "devbox";
+    install-docker = ''
+        sudo apt-get update
+        sudo apt-get install ca-certificates
+        sudo install -m 0755 -d /etc/apt/keyrings
+        sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+        sudo chmod a+r /etc/apt/keyrings/docker.asc
+        echo \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+            $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable\" | \
+            sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        sudo apt-get update
+        sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        sudo groupadd docker
+        sudo usermod -aG docker $USER
+        newgrp docker
+    '';
     install-podman = "sudo apt install -y podman";
+    kubectl = "microk8s.kubectl";
     ls = "ls -lah --color=auto --group-directories-first";
     make-keys = "ssh-keygen -t rsa -b 4096";
     switch = "home-manager switch";
@@ -32,6 +49,12 @@ in
       enable = true;
       theme = "af-magic";
     };
+    initExtra = ''
+      # Custom file to put things that shouldnt be public
+      if [[ -f $HOME/.zshrc_secrets ]]; then . $HOME/.zshrc_secrets; fi
+      # enables hgrex-cli tab-completion
+      eval "$(register-python-argcomplete hgrex-cli)"
+    '';
   };
 
   programs.bash = {
