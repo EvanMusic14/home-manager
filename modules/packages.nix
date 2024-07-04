@@ -14,6 +14,7 @@
     gitkraken
 
     jetbrains.clion
+    kitty
 
     nix-index
 

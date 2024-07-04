@@ -37,6 +37,5 @@ in
     [[ -f /usr/bin/vim ]] && toBeRemoved+="vim "
     if [[ ! $toBeRemoved == "" ]]; then echo -e "\033[1;33mWarning\033[0m: There are apt packages installed that may conflict with nix packages" && echo -e "\033[0;32mRun\033[0m: sudo apt purge --auto-remove $toBeRemoved -y" | xargs; fi
     if [[ -f /snap/bin/firefox ]]; then echo -e "\033[1;33mWarning\033[0m: There are snap packages installed that may conflict with nix packages" && echo -e "\033[0;32mRun\033[0m: sudo snap remove --purge firefox"; fi
-    if [[ ! -f /usr/bin/podman ]]; then echo -e "\033[1;33mWarning\033[0m: Podman is not installed " && echo -e "\033[0;32mRun\033[0m: install-podman"; fi
   '';
 }
