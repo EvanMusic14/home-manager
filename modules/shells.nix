@@ -63,6 +63,10 @@ in
     sessionVariables = sessionVariables;
     shellAliases = shellAliases;
     initExtra = ''
+      # Due to the issue of icons disapearing when setting zsh as the default shell
+      # I am overcoming this by just calling zsh in the bashrc
+      zsh
+
       PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\ $ '
 
       GIT_PROMPT_FILE_NIXOS="/run/current-system/sw/share/bash-completion/completions/git-prompt.sh"

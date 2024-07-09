@@ -16,6 +16,10 @@ in
   nix = {
     package = pkgs.nix;
     settings.experimental-features = [ "nix-command" "flakes" ];
+    gc = {
+        automatic = true;
+        frequency = "daily";
+    };
   };
 
   # Move files so that they do not conflict with the ones created by home manager
