@@ -4,6 +4,8 @@
   home.packages = with pkgs; [
     awscli2
 
+    brave
+
     curl
     
     devbox
@@ -12,6 +14,7 @@
     fd
 
     gitkraken
+    github-desktop
 
     jetbrains.clion
     kitty
