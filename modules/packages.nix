@@ -15,6 +15,7 @@
 
     gitkraken
     github-desktop
+    gittyup
 
     jetbrains.clion
     kitty
