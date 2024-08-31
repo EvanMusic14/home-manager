@@ -1,28 +1,6 @@
 { pkgs, ... }:
 
 {
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    extraConfig = ''
-      set clipboard+=unnamedplus
-      set expandtab
-      set termguicolors
-      set background=dark
-      set mouse=a
-      set number
-      set relativenumber
-      set tabstop=2
-      set scrolloff=8
-      set shiftwidth=2
-      set smartindent
-      set smartcase
-      set smarttab
-    '';
-  };
-
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [

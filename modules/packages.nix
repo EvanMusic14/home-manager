@@ -21,8 +21,6 @@
 
     jetbrains.clion
 
-    kitty
-
     nix-index
 
     python311Full
@@ -37,3 +35,4 @@
     xsel
   ];
 }
+

@@ -14,32 +14,26 @@ let
   };
   shellAliases = {
     db = "devbox";
-    install-docker = ''
-        sudo apt-get update
-        sudo apt-get install ca-certificates
-        sudo install -m 0755 -d /etc/apt/keyrings
-        sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-        sudo chmod a+r /etc/apt/keyrings/docker.asc
-        echo \
-            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-            $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable\" | \
-            sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-        sudo apt-get update
-        sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-        sudo groupadd docker
-        sudo usermod -aG docker $USER
-        newgrp docker
-    '';
     install-podman = "sudo apt install -y podman";
     kubectl = "microk8s.kubectl";
     ls = "ls -lah --color=auto --group-directories-first";
     make-keys = "ssh-keygen -t rsa -b 4096";
-    switch = "home-manager switch";
+    switch = "home-manager switch --flake $HOME/.config/home-manager#$USER";
     rebuild = "sudo nixos-rebuild switch --flake $HOME/.config/nixos#$USER";
     win-mount = "mkdir -p '/home/emusic/Documents/share' && vmhgfs-fuse .host:/share /home/emusic/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
   };
 in
 {
+  programs.kitty = {
+    enable = true;
+    shellIntegration = {
+      enableZshIntegration = true;
+    };
+    settings = {
+      shell = "zsh";
+    };
+  };
+
   programs.zsh = {
     enable = true;
     sessionVariables = sessionVariables;
