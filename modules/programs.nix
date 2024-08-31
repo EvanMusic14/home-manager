@@ -61,6 +61,28 @@
     }; 
   };
 
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+ 
+    defaultCommand = "fd --type f";
+  };
+
+  programs.nnn = {
+    enable = true;
+  };
+
+  programs.broot = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
+  programs.bat = {
+    enable = true;
+  };
+
   programs.git = {
     enable = true;
     userName = "Evan Music";

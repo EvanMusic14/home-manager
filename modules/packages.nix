@@ -14,6 +14,8 @@
     fd
 
     gitkraken
+    github-desktop
+    gittyup
     gnome.gnome-tweaks
     gnomeExtensions.useless-gaps
 
