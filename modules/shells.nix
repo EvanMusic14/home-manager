@@ -26,11 +26,24 @@ in
 {
   programs.kitty = {
     enable = true;
+    # Not sure why this isnt working
+    # it is listed in the themes
+    # theme = "Kanagawa";
     shellIntegration = {
       enableZshIntegration = true;
     };
     settings = {
+      active_border_color = "#44ffff";
+      background_blur = "64";
+      background_opacity = "0.6";
+      # dynamic_background_opacity = "yes";
+      enabled_layouts = "Tall, *";
       shell = "zsh";
+      single_windows_margin_width = 1;
+      tab_bar_style = "powerline";
+      tab_powerline_style = "slanted";
+      window_border_width = "1pt";
+      window_margin_width = "10";
     };
   };
 
@@ -59,7 +72,7 @@ in
     initExtra = ''
       # Due to the issue of icons disapearing when setting zsh as the default shell
       # I am overcoming this by just calling zsh in the bashrc
-      zsh
+      # zsh
 
       PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\ $ '
 
