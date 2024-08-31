@@ -4,6 +4,8 @@
   home.packages = with pkgs; [
     awscli2
 
+    brave
+
     curl
     
     devbox
@@ -12,8 +14,11 @@
     fd
 
     gitkraken
+    gnome.gnome-tweaks
+    gnomeExtensions.useless-gaps
 
     jetbrains.clion
+
     kitty
 
     nix-index
