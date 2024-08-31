@@ -22,13 +22,6 @@ in
     };
   };
 
-  # Enable the abililty to use gnome extensions
-  dconf.settings = {
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-    };
-  };
-
   # Move files so that they do not conflict with the ones created by home manager
   home.activation.moveFiles = lib.hm.dag.entryBefore [ "checkFilesChanged" "checkLinkTargets" "writeBoundary" "installPackages" ] ''
     [[ -f $HOME/.bashrc ]] && [[ ! -f $HOME/.bashrc.backup ]] && mv $HOME/.bashrc $HOME/.bashrc.backup
