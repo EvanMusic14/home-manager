@@ -69,6 +69,11 @@
       co = "checkout";
       cm = "commit";
     };
+    extraConfig = {
+      push = {
+        autoSetupRemote = "true";
+      };
+    };
   };
 
   programs.direnv = {

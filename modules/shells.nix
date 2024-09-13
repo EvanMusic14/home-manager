@@ -24,6 +24,13 @@ let
   };
 in
 {
+  programs.alacritty = {
+    enable = true;
+    # settings = {
+    #   
+    # };
+  };
+
   programs.kitty = {
     enable = true;
     # Not sure why this isnt working
@@ -72,7 +79,7 @@ in
     initExtra = ''
       # Due to the issue of icons disapearing when setting zsh as the default shell
       # I am overcoming this by just calling zsh in the bashrc
-      # zsh
+      zsh
 
       PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\ $ '
 
