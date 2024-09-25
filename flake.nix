@@ -3,7 +3,7 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable 23.11
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05"; # Stable 23.11
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable
 
     home-manager = {
@@ -27,7 +27,7 @@
             home = {
               username = "emusic";
               homeDirectory = "/home/emusic";
-              stateVersion = "23.11";
+              stateVersion = "24.05";
             };
           }
         ];
