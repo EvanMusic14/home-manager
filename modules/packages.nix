@@ -17,7 +17,7 @@
     github-desktop
     gittyup
     gitnuro
-    gnome.gnome-tweaks
+    gnome-tweaks
 
     jetbrains.clion
 
