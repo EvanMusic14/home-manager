@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     awscli2
 
+    baobab
     brave
 
     curl
