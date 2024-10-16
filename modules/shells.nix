@@ -21,6 +21,7 @@ let
     switch = "home-manager switch --flake $HOME/.config/home-manager#$USER";
     rebuild = "sudo nixos-rebuild switch --flake $HOME/.config/nixos#$USER";
     win-mount = "mkdir -p '/home/emusic/Documents/share' && vmhgfs-fuse .host:/share /home/emusic/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
+    clean-docker = "docker system df && docker container prune -f && docker image prune -f && docker builder prune -f && docker volume prune -a -f && docker system df";
   };
 in
 {

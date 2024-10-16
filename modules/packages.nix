@@ -16,7 +16,6 @@
 
     gitkraken
     github-desktop
-    gittyup
     gitnuro
     gnome-tweaks
 

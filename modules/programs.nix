@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-#   programs.vscode = {
-#     enable = true;
+  programs.vscode = {
+    enable = true;
 #     extensions = with pkgs.vscode-extensions; [
 #       aaron-bond.better-comments
 #       alefragnani.bookmarks
@@ -26,7 +26,7 @@
 #       usernamehw.errorlens
 #       mechatroner.rainbow-csv
 #     ];
-#   };
+  };
 
   programs.vim = {
     enable = true;
