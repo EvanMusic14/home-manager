@@ -14,8 +14,8 @@
     firefox
     fd
 
-    gitkraken
     github-desktop
+    gitkraken
     gitnuro
     gnome-tweaks
 
@@ -28,6 +28,7 @@
     python311Packages.pipx
     python311Packages.selenium
 
+    smartgithg
     ssm-session-manager-plugin
 
     wget
