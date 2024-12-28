@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     awscli2
 
+    baobab
     brave
 
     curl
@@ -13,10 +14,10 @@
     firefox
     fd
 
-    gitkraken
     github-desktop
-    gittyup
-    gnome.gnome-tweaks
+    gitkraken
+    gitnuro
+    gnome-tweaks
 
     jetbrains.clion
 
@@ -29,6 +30,7 @@
     python311Packages.pipx
     python311Packages.selenium
 
+    smartgithg
     ssm-session-manager-plugin
 
     wget
