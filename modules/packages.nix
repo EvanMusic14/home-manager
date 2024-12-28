@@ -22,6 +22,8 @@
 
     nix-index
 
+    obsidian
+
     python311Full
     python311Packages.argcomplete
     python311Packages.pipx
