@@ -21,6 +21,8 @@
 
     jetbrains.clion
 
+    libclang
+
     nix-index
 
     obsidian
@@ -30,7 +32,6 @@
     python311Packages.pipx
     python311Packages.selenium
 
-    smartgithg
     ssm-session-manager-plugin
 
     wget

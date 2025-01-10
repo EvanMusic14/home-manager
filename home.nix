@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixgl, ... }:
 let
     modules = builtins.readDir ./modules;
     configs = builtins.filter (file: builtins.match ".*\.nix" file != null) (builtins.attrNames modules);
