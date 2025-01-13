@@ -32,9 +32,7 @@ in
   programs.kitty = {
     package = config.lib.nixGL.wrap pkgs.kitty;
     enable = true;
-    # Not sure why this isnt working
-    # it is listed in the themes
-    # theme = "Kanagawa";
+    themeFile = "kanagawa";
     shellIntegration = {
       enableZshIntegration = true;
     };
@@ -42,7 +40,6 @@ in
       active_border_color = "#44ffff";
       background_blur = "64";
       background_opacity = "0.9";
-      # dynamic_background_opacity = "yes";
       enabled_layouts = "Tall, *";
       shell = "zsh";
       single_windows_margin_width = 1;
