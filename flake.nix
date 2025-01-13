@@ -3,48 +3,45 @@
 
   # Flake inputs
   inputs = {
-    # Use stable versions for nixpkgs and home-manager
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:nix-community/nixGL";
   };
 
-  outputs = { nixpkgs, home-manager, nixgl, ... }: {
-    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
-
-    # Home Manager configurations
+  outputs = { nixpkgs, home-manager, nixgl, ... }: 
+  let
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      overlays = [ nixgl.overlay ];
+    };
+  in {
     homeConfigurations = {
-      "emusic" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          overlays = [ nixgl.overlay ];  # Inject nixgl overlay for OpenGL support
-        };
-
+      "emusic" = home-manager.lib.homeManagerConfiguration { 
+        pkgs = pkgs;
+        extraSpecialArgs = { inherit nixgl; };  # Pass nixgl to home-manager configuration
         modules = [
           ./home.nix
           {
             home = {
               username = "emusic";
               homeDirectory = "/home/emusic";
-              stateVersion = "24.11";  # Explicit version for user configuration
+              stateVersion = "24.11";
             };
           }
         ];
       };
 
       "runner" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-        };
-
+        pkgs = pkgs;
+        extraSpecialArgs = { inherit nixgl; };  # Pass nixgl to home-manager configuration
         modules = [
           ./home.nix
           {
             home = {
               username = "runner";
               homeDirectory = "/home/runner";
-              stateVersion = "24.11";  # Specific state version for the runner
+              stateVersion = "24.11";
             };
           }
         ];

@@ -56,6 +56,26 @@
       vim.opt.smartindent = true
       vim.opt.smartcase = true
       vim.opt.smarttab = true  
+
+
+      -- Set relative line numbers by default in Normal mode
+      vim.opt.relativenumber = true
+      vim.opt.number = true
+
+      -- Use autocmd to switch to absolute line numbers in Insert mode
+      vim.api.nvim_create_autocmd("InsertEnter", {
+        callback = function()
+          vim.opt.number = true
+          vim.opt.relativenumber = false
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("InsertLeave", {
+        callback = function()
+          vim.opt.number = true
+          vim.opt.relativenumber = true
+        end,
+      })
     '';
   };
 }

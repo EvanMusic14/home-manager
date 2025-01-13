@@ -1,6 +1,8 @@
+{ config, lib, pkgs, nixgl, ... }:
+
 let
   sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "nvim";
     PATH = "$PATH:$HOME/.config/home-manager/bin:$HOME/.nix-profile/bin:$HOME/.local/bin";
     HISTCONTROL=ignoreboth:erasedups;
     DIRENV_LOG_FORMAT="";
@@ -14,6 +16,7 @@ let
   };
   shellAliases = {
     db = "devbox";
+    clean-docker = "docker system df && docker container prune -f && docker image prune -f && docker builder prune -f && docker volume prune -a -f && docker system df";
     install-podman = "sudo apt install -y podman";
     kubectl = "microk8s.kubectl";
     ls = "ls -lah --color=auto --group-directories-first";
@@ -21,18 +24,13 @@ let
     switch = "home-manager switch --flake $HOME/.config/home-manager#$USER";
     rebuild = "sudo nixos-rebuild switch --flake $HOME/.config/nixos#$USER";
     win-mount = "mkdir -p '/home/emusic/Documents/share' && vmhgfs-fuse .host:/share /home/emusic/Documents/share -o uid=1000 -o gid=1000 -o umask=0022";
-    clean-docker = "docker system df && docker container prune -f && docker image prune -f && docker builder prune -f && docker volume prune -a -f && docker system df";
   };
 in
 {
-  programs.alacritty = {
-    enable = true;
-    # settings = {
-    #   
-    # };
-  };
+  nixGL.packages = nixgl.packages;
 
   programs.kitty = {
+    package = config.lib.nixGL.wrap pkgs.kitty;
     enable = true;
     # Not sure why this isnt working
     # it is listed in the themes
@@ -43,7 +41,7 @@ in
     settings = {
       active_border_color = "#44ffff";
       background_blur = "64";
-      background_opacity = "0.6";
+      background_opacity = "0.9";
       # dynamic_background_opacity = "yes";
       enabled_layouts = "Tall, *";
       shell = "zsh";
@@ -80,7 +78,7 @@ in
     initExtra = ''
       # Due to the issue of icons disapearing when setting zsh as the default shell
       # I am overcoming this by just calling zsh in the bashrc
-      zsh
+      # zsh # Found an alternative to set this in the gnome terminal preferences
 
       PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\ $ '
 
