@@ -16,6 +16,7 @@
 
     plugins = with pkgs.vimPlugins; [
       coc-nvim
+      coc-clangd
       kanagawa-nvim
       lualine-nvim
       vim-nix
@@ -48,7 +49,8 @@
       vim.opt.clipboard:append("unnamedplus")
       vim.opt.expandtab = true
       vim.opt.termguicolors = true
-      vim.opt.mouse = "a"
+      -- Disable mouse 
+      vim.opt.mouse = ""
       vim.opt.number = true
       vim.opt.tabstop = 2
       vim.opt.scrolloff = 8
