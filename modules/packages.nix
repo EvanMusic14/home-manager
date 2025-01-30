@@ -5,6 +5,8 @@
     awscli2
 
     baobab
+    bat
+    black
     brave
 
     curl

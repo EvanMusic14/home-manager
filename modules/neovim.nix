@@ -9,8 +9,25 @@
     vimdiffAlias = true;
 
     coc = {
-      enable= true;
+      enable = true;
       settings = {
+        "languageserver" = {
+          "clangd" = {
+            "command" = "${pkgs.clang}/bin/clangd";
+            "args" = [
+              "--background-index"
+              "--clang-tidy"
+              "--compile-commands-dir=build"
+            ];
+            "filetypes" = [ "cpp" "cc" "hh" "h" "c" ];
+            "rootPatterns" = [
+              "CMakeLists.txt"
+              "compile_commands.json"
+              ".clang-format"
+              ".clang-tidy"
+            ];
+          };
+        };
       };
     };
 
@@ -21,6 +38,7 @@
       lualine-nvim
       vim-nix
       YankRing-vim
+      yazi-nvim
     ];
 
     extraLuaConfig = ''
@@ -78,6 +96,10 @@
           vim.opt.relativenumber = true
         end,
       })
+
+
+      -- Example for configuring Yazi plugin with Lua
+      vim.api.nvim_set_keymap('n', '<leader>y', ':Yazi<CR>', { noremap = true, silent = true })
     '';
   };
 }
