@@ -22,6 +22,16 @@
       ms-vscode-remote.remote-containers 
       mechatroner.rainbow-csv
     ];
+    userSettings = {
+      "editor.minimap.enabled" = false;
+      "extensions.experimental.affinity" = {
+        "asvetliakov.vscode-neovim" = 1;
+      };
+      "terminal.integrated.defaultProfile.linux" = "zsh";
+      "workbench.colorTheme" = "Kanagawa";
+      "workbench.iconTheme" = "vscode-icons";
+      "C_Cpp.intelliSenseEngine" = "disabled";
+    };
   };
 
   programs.vim = {
