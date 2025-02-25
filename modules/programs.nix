@@ -1,39 +1,6 @@
 { pkgs, ... }:
 
 {
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      aaron-bond.better-comments
-      asvetliakov.vscode-neovim
-      bbenoist.nix
-      christian-kohler.path-intellisense
-      esbenp.prettier-vscode
-      gruntfuggly.todo-tree
-      llvm-vs-code-extensions.vscode-clangd
-      vscode-icons-team.vscode-icons
-      mkhl.direnv
-      ms-python.python
-      ms-azuretools.vscode-docker
-      ms-vscode.cpptools
-      ms-vscode.cpptools-extension-pack
-      ms-vscode.cmake-tools
-      ms-vscode-remote.remote-ssh
-      ms-vscode-remote.remote-containers 
-      mechatroner.rainbow-csv
-    ];
-    userSettings = {
-      "editor.minimap.enabled" = false;
-      "extensions.experimental.affinity" = {
-        "asvetliakov.vscode-neovim" = 1;
-      };
-      "terminal.integrated.defaultProfile.linux" = "zsh";
-      "workbench.colorTheme" = "Kanagawa";
-      "workbench.iconTheme" = "vscode-icons";
-      "C_Cpp.intelliSenseEngine" = "disabled";
-    };
-  };
-
   programs.vim = {
     enable = true;
     settings = {

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixgl, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   sessionVariables = {
@@ -6,13 +6,6 @@ let
     PATH = "$PATH:$HOME/.config/home-manager/bin:$HOME/.nix-profile/bin:$HOME/.local/bin";
     HISTCONTROL=ignoreboth:erasedups;
     DIRENV_LOG_FORMAT="";
-
-    # hgrex-cli
-    HGREX_CLI_CUSTOM_SUBCMD_DIR="$HOME/.hgrex-cli/custom";
-    HGREX_CLI_STDOUT_LOG_LEVEL="DEBUG";
-    HGREX_CLI_FILE_LOG_LEVEL="WARN";
-    HGREX_PROJECT_ROOT="$HOME/Documents/ssp/hgrex";
-    CONAN_REVISIONS_ENABLED=1;
   };
   shellAliases = {
     cat = "bat";
@@ -28,29 +21,6 @@ let
   };
 in
 {
-  nixGL.packages = nixgl.packages;
-
-  programs.kitty = {
-    package = config.lib.nixGL.wrap pkgs.kitty;
-    enable = true;
-    themeFile = "kanagawa";
-    shellIntegration = {
-      enableZshIntegration = true;
-    };
-    settings = {
-      active_border_color = "#44ffff";
-      background_blur = "64";
-      background_opacity = "0.9";
-      enabled_layouts = "Tall, *";
-      shell = "zsh";
-      single_windows_margin_width = 1;
-      tab_bar_style = "powerline";
-      tab_powerline_style = "slanted";
-      window_border_width = "1pt";
-      window_margin_width = "10";
-    };
-  };
-
   programs.zsh = {
     enable = true;
     sessionVariables = sessionVariables;
