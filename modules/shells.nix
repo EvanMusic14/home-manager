@@ -34,8 +34,6 @@ in
     initExtra = ''
       # Custom file to put things that shouldnt be public
       if [[ -f $HOME/.zshrc_secrets ]]; then . $HOME/.zshrc_secrets; fi
-      # enables hgrex-cli tab-completion
-      eval "$(register-python-argcomplete hgrex-cli)"
     '';
   };
 
