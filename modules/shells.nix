@@ -79,8 +79,6 @@ in
 
       # setup direnv
       eval "$(direnv hook bash)"
-      # enables hgrex-cli tab-completion
-      eval "$(register-python-argcomplete hgrex-cli)"
     '';
   };
 }
