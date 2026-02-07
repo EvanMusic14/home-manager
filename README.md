@@ -6,7 +6,7 @@
 ```sh
 wget --output-document=/dev/stdout https://nixos.org/nix/install | sh -s -- --daemon --yes \
 && source /etc/profile \
-&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."$USER".activationPackage
+&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/wsl#homeConfigurations."$USER".activationPackage
 ```
 
 ## Steps with clone
@@ -17,7 +17,7 @@ wget --output-document=/dev/stdout https://nixos.org/nix/install | sh -s -- --da
 wget --output-document=/dev/stdout https://nixos.org/nix/install | sh -s -- --daemon --yes \
 && source /etc/profile \
 && nix-shell -p home-manager git \
-    --run "git clone git@github.com:EvanMusic14/home-manager.git ~/.config/home-manager \
+    --run "git clone -b wsl --single-branch git@github.com:EvanMusic14/home-manager.git ~/.config/home-manager \
     && home-manager switch --extra-experimental-features 'nix-command flakes'"
 ```
 
