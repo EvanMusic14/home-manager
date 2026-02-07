@@ -1,6 +1,47 @@
 { pkgs, ... }:
 
 {
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.bat.enable
+  programs.bat = {
+    enable = true;
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.direnv.enable
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.fd.enable
+  programs.fd = {
+    enable = true;
+    hidden = true;
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.fzf.enable
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+
+    defaultCommand = "fd --type f";
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.k9s.enable
+  programs.k9s = {
+    enable = true;
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.nix-index.enable
+  programs.nix-index = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.vim.enable
   programs.vim = {
     enable = true;
     settings = {
@@ -9,53 +50,10 @@
       number = true;
       relativenumber = true;
       tabstop = 2;
-    }; 
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
- 
-    defaultCommand = "fd --type f";
-  };
-
-  programs.nnn = {
-    enable = true;
-  };
-
-  programs.broot = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-  };
-
-  programs.bat = {
-    enable = true;
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Evan Music";
-    aliases = {
-      pu = "push";
-      co = "checkout";
-      cm = "commit";
-    };
-    extraConfig = {
-      push = {
-        autoSetupRemote = "true";
-      };
     };
   };
 
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
-  };
-
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.yazi.enable
   programs.yazi = {
     enable = true;
     settings = {
@@ -68,4 +66,3 @@
     };
   };
 }
-

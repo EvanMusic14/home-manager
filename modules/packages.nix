@@ -3,26 +3,22 @@
 {
   home.packages = with pkgs; [
     baobab
-    bat
-    black
 
     curl
-    
+
     devbox
+    devenv
 
-    fd
+    git
 
-    libclang
+    nixfmt
 
-    nix-index
+    (pkgs.wrapHelm pkgs.kubernetes-helm { plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ]; })
 
-    python311Full
-    python311Packages.pip
-    python311Packages.pipx
+    unzip
 
     wget
 
-    xsel
+    yq-go
   ];
 }
-
