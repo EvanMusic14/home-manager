@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.bat.enable
@@ -64,5 +64,24 @@
         scrolloff = 8;
       };
     };
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.ripgrep.enable
+  programs.ripgrep = {
+    enable = true;
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.zoxide.enable
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.eza.enable
+  programs.eza = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 }

@@ -1,27 +1,34 @@
 # home-manager
+
 ![Nix and Home Manager install](https://github.com/EvanMusic14/home-manager/actions/workflows/testCommands.yml/badge.svg)
 
 ## Steps without clone
+
 - Run command below
+
 ```sh
 wget --output-document=/dev/stdout https://nixos.org/nix/install | sh -s -- --daemon --yes \
 && source /etc/profile \
-&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/wsl#homeConfigurations."$USER".activationPackage
+&& nix --extra-experimental-features 'nix-command flakes' run github:EvanMusic14/home-manager/main#homeConfigurations."$USER"-base.activationPackage
 ```
 
 ## Steps with clone
-- Run `ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub`
+
+- Run
+  `ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub`
 - Add public key to GitHub
 - Run command below
+
 ```sh
 wget --output-document=/dev/stdout https://nixos.org/nix/install | sh -s -- --daemon --yes \
 && source /etc/profile \
 && nix-shell -p home-manager git \
-    --run "git clone -b wsl --single-branch git@github.com:EvanMusic14/home-manager.git ~/.config/home-manager \
-    && home-manager switch --extra-experimental-features 'nix-command flakes'"
+    --run "git clone git@github.com:EvanMusic14/home-manager.git ~/.config/home-manager \
+    && home-manager switch --extra-experimental-features 'nix-command flakes' --flake $HOME/.config/home-manager#$USER-base"
 ```
 
 ## Resources
+
 - home-manager/flake config
   - https://www.chrisportela.com/posts/home-manager-flake/
   - https://gvolpe.com/blog/nix-flakes/

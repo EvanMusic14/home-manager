@@ -27,9 +27,30 @@
     in
     {
       homeConfigurations = {
-        "emusic" = home-manager.lib.homeManagerConfiguration {
+        "emusic-base" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
-          extraSpecialArgs = { inherit nixgl; }; # Pass nixgl to home-manager configuration
+          extraSpecialArgs = {
+            inherit nixgl;
+            isGUI = false;
+          };
+          modules = [
+            ./home.nix
+            {
+              home = {
+                username = "emusic";
+                homeDirectory = "/home/emusic";
+                stateVersion = "${stateVersion}";
+              };
+            }
+          ];
+        };
+
+        "emusic-gui" = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgs;
+          extraSpecialArgs = {
+            inherit nixgl;
+            isGUI = true;
+          };
           modules = [
             ./home.nix
             {
@@ -44,7 +65,10 @@
 
         "runner" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
-          extraSpecialArgs = { inherit nixgl; }; # Pass nixgl to home-manager configuration
+          extraSpecialArgs = {
+            inherit nixgl;
+            isGUI = true;
+          };
           modules = [
             ./home.nix
             {

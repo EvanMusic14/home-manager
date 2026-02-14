@@ -3,17 +3,27 @@
   pkgs,
   lib,
   nixgl,
+  isGUI,
   ...
 }:
 let
-  modules = builtins.readDir ./modules;
-  configs = builtins.filter (file: builtins.match ".*\.nix" file != null) (
-    builtins.attrNames modules
-  );
+  # Function to import *.nix files in a dir
+  importDir =
+    dir:
+    let
+      files = builtins.readDir dir;
+      nixFiles = builtins.filter (file: builtins.match ".*\\.nix" file != null) (
+        builtins.attrNames files
+      );
+    in
+    map (file: dir + "/${file}") nixFiles;
+
+  baseModules = importDir ./modules/base;
+  guiModules = importDir ./modules/gui;
 in
 {
-  # Dynamically import all the nix files in the modules directory
-  imports = map (file: import (./modules + "/${file}")) configs;
+  # Always import base modules and optionally import gui modules
+  imports = baseModules ++ lib.optionals isGUI guiModules;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
