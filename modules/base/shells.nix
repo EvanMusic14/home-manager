@@ -12,7 +12,6 @@ let
     db = "devbox";
     clean-docker = "docker system df && docker container prune -f && docker image prune -f && docker builder prune -f && docker volume prune -a -f && docker system df";
     grep = "rg";
-    kubectl = "microk8s.kubectl";
     la = "eza --icons --group-directories-first -a";
     ll = "eza --icons --group-directories-first -lh";
     lla = "eza --icons --group-directories-first -lah";
