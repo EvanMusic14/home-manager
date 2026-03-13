@@ -16,6 +16,7 @@ let
     ll = "eza --icons --group-directories-first -lh";
     lla = "eza --icons --group-directories-first -lah";
     ls = "eza --icons --group-directories-first";
+    lt = "eza --icons --tree";
     make-keys = "ssh-keygen -t rsa -b 4096";
     switch-base = "home-manager switch --flake $HOME/.config/home-manager#$USER-base";
     switch-gui = "home-manager switch --flake $HOME/.config/home-manager#$USER-gui";
@@ -54,6 +55,7 @@ in
     enableBashIntegration = true;
     enableZshIntegration = true;
     enableFishIntegration = true;
+    settings = builtins.fromTOML (builtins.readFile ./configs/starship/starship.toml);
   };
 
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.zsh.enable

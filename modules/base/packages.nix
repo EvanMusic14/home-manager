@@ -1,28 +1,30 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
-  home.packages = with pkgs; [
-    baobab
+  home.packages = [
+    pkgs.baobab
 
-    curl
+    pkgs.curl
 
-    devbox
-    devenv
+    pkgs.devbox
+    pkgs.devenv
 
-    git
+    pkgs.git
 
-    kubectl
+    pkgs.kubectl
 
-    nixfmt
+    pkgs.nixfmt
 
     (pkgs.wrapHelm pkgs.kubernetes-helm { plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ]; })
 
-    tokei
+    pkgs.tokei
 
-    unzip
+    pkgs.unzip
 
-    wget
+    pkgs.wget
 
-    yq-go
+    pkgs.yq-go
+
+    pkgs-unstable.worktrunk
   ];
 }
