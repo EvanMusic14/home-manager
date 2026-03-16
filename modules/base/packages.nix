@@ -6,9 +6,6 @@
 
     pkgs.curl
 
-    pkgs.devbox
-    pkgs.devenv
-
     pkgs.git
 
     pkgs.kubectl
@@ -25,6 +22,6 @@
 
     pkgs.yq-go
 
-    pkgs-unstable.worktrunk
+    pkgs-unstable.devenv
   ];
 }

@@ -32,6 +32,9 @@ in
     initExtra = ''
       # Custom file to put things that shouldnt be public
       if [[ -f $HOME/.bashrc_secrets ]]; then . $HOME/.bashrc_secrets; fi
+
+      # https://worktrunk.dev/config/
+      eval "$(wt config shell init bash)"
     '';
   };
 
@@ -73,6 +76,9 @@ in
     initContent = ''
       # Custom file to put things that shouldnt be public
       if [[ -f $HOME/.zshrc_secrets ]]; then . $HOME/.zshrc_secrets; fi
+
+      # https://worktrunk.dev/config/
+      eval "$(wt config shell init zsh)"
     '';
   };
 }
