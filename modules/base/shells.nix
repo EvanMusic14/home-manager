@@ -8,6 +8,7 @@ let
     DIRENV_LOG_FORMAT = "";
   };
   shellAliases = {
+    c = "clear";
     cat = "bat";
     db = "devbox";
     clean-docker = "docker system df && docker container prune -f && docker image prune -f && docker builder prune -f && docker volume prune -a -f && docker system df";

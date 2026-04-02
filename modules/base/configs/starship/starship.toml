@@ -1,5 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+[directory]
+truncate_to_repo = false
+
 # https://starship.rs/presets/no-empty-icons
 
 [buf]
