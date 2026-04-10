@@ -15,6 +15,8 @@
 
     (pkgs.wrapHelm pkgs.kubernetes-helm { plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ]; })
 
+    pkgs.ruff
+
     pkgs.tokei
 
     pkgs.unzip
